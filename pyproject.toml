@@ -1,0 +1,24 @@
+[project]
+name = "execnotif"
+version = "0.1.0"
+description = "A notifier if unauthorized apps access folders they should not."
+authors = [
+    {name = "Mark",email = "107583221+MarkSmrnw@users.noreply.github.com"}
+]
+readme = "README.md"
+package-mode = false
+requires-python = ">=3.14"
+dependencies = [
+    "pyqt6 (>=6.11.0,<7.0.0)",
+    "colorama (>=0.4.6,<0.5.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.1.0,<10.0.0)"
+]
