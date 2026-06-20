@@ -1,7 +1,7 @@
 import sys
 
 from PyQt6 import uic
-from PyQt6.QtWidgets import QApplication, QMainWindow
+from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton
 
 from general.printing import debugPrint
 
@@ -11,7 +11,13 @@ class MainWindow(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
 
-        uic.loadUi("ui/main.ui", self)  # type: ignore (Type-Error because uic is not typed correctly.)
+        self.ui = uic.loadUi("ui/main.ui")  # type: ignore (Type-Error because uic is not typed correctly.)
+        self.setWindowTitle("ExecNotif")
+        self.setGeometry(0, 0, 500, 250)
+        self.setCentralWidget(self.ui)
+
+        self.pushButton: QPushButton = self.ui.pushButton  # type: ignore
+        self.pushButton.clicked.connect(self.buttonClick)
 
     def buttonClick(self):
         debugPrint("A button has been clicked!")
